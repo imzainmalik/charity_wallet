@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/checkUserAccType';
 
     /**
      * Create a new controller instance.
@@ -40,6 +42,25 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function register_with_google(){
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function google_callback($google){  
+        $google = Socialite::driver($google)->user();
+       
+    }
+
+
+    public function register_with_facebook(){
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function facebook_callback($social){
+        $facebook = Socialite::driver('facebook')->user();
+        dd($facebook);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,10 +70,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'f_name' => ['required', 'string', 'max:255'],
+            'l_name' => ['required', 'string', 'max:255'],
+            // 'phone' => ['required', 'string', 'max:255'],
+            // 'tax_id' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        // $this->create()
     }
 
     /**
@@ -63,10 +89,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd($data);
         return User::create([
-            'name' => $data['name'],
+            'f_name' => $data['f_name'],
+            'l_name' => $data['l_name'],
             'email' => $data['email'],
+            // 'phone' => $data['phone'],
+            // 'tax_id' => $data['tax_id'],
             'password' => Hash::make($data['password']),
+            'login_method' => 0
         ]);
     }
 }
