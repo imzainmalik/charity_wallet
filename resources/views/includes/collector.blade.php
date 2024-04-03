@@ -1,6 +1,6 @@
 <div class="panelBox widgets">
     <div class="logo">
-        <a href="./" title="Company Logo">
+        <a href="{{ route('collector.dashboard') }}" title="Company Logo">
             <!-- <img src="assets/images/logo.webp" alt=""> -->
             Charity Wallet
         </a>
@@ -54,15 +54,13 @@
                 </a>
             </li> --}}
             <li>
-                <a href="javascript:;" title="">
+                <a href="{{ route('collector.transaction_history') }}" title="">
                     <small><img src="{{ asset('assets/images/icons/invoiceico.png') }}" alt=""></small>
-                    Transfer Funds
-
-                </a>
-
+                    Transfer Funds 
+                </a> 
             </li>
             <li>
-                <a href="{{ route('collector.transaction_history') }}" title="">
+                <a href="javascript:;" title="">
                     <small><img src="{{ asset('assets/images/icons/ordercertificate.png') }}" alt=""></small>
                     Order Certificates
                 </a>
