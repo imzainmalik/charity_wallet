@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| be assigned to the "web" middleware group. Make something great----!
 |
 */
 
@@ -43,12 +43,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('edit_profile/{id}', [AdminDonorController::class, 'edit_profile'])->name('admin.edit_profile');
     Route::post('update_donor_account_info/{id}', [AdminDonorController::class, 'update_donor_account_info'])->name('admin.update_donor_account_info');
 });
-
-
 Route::group(['prefix' => 'donor'], function () {
     // dd(Auth::user());
     Route::get('dashboard', [DonorController::class, 'dashboard'])->name('donor.dashboard');
-    
 });
 
 // Route::middleware(['auth', 'donor'])->prefix('donor')->group(function () {
@@ -66,5 +63,5 @@ Route::group(['prefix' => 'collector'], function () {
     Route::get('bank/view-bank', [CollectorBankDetailsController::class, 'view_bank'])->name('collector.view_bank');
     Route::post('bank/create_bank', [CollectorBankDetailsController::class, 'create_bank'])->name('collector.create_bank');
     Route::post('bank/update_bank/{bank_id}', [CollectorBankDetailsController::class, 'update_bank'])->name('collector.update_bank');
-    Route::get('transaction_history', [CollectorBankDetailsController::class, 'view_bank'])->name('collector.transaction_history');
+    Route::get('transaction_history', [CollectorBankDetailsController::class, 'transaction_history'])->name('collector.transaction_history');
 });

@@ -1,6 +1,6 @@
 <div class="panelBox widgets">
     <div class="logo">
-        <a href="./" title="Company Logo">
+        <a href="{{ route('donor.dashboard') }}" title="Company Logo">
             <!-- <img src="assets/images/logo.webp" alt=""> -->
             Charity Wallet
         </a>
@@ -9,26 +9,30 @@
     <nav class="scrollcustom">
         <ul>
             <li>
-                <a href="./" title="">
-                    <small><img src="assets/images/icons/dashboardicon.png" alt=""></small> Dashboard
+                <a href="{{ route('donor.dashboard') }}" title="">
+                    <small><img src="{{ asset('assets/images/icons/dashboardicon.png') }}" alt=""></small>
+                    Dashboard
                 </a>
             </li>
             <li class="has-child">
                 <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/walletico.png" alt=""></small> Activity
+                    <small><img src="{{ asset('assets/images/icons/walletico.png') }}" alt=""></small> Activity
                     <i class="fal fa-chevron-down chev"></i>
                 </a>
                 <div class="dropdown">
                     <ul>
                         <li>
                             <a href="javascript:;" title="">
-                                <small><img src="assets/images/icons/shipmenticon.png" alt=""></small>
+                                <small><img src="{{ asset('assets/images/icons/shipmenticon.png') }}"
+                                        alt=""></small>
                                 Post a Shipment
                             </a>
                         </li>
                         <li>
                             <a href="javascript:;" title="">
-                                <small><img src="assets/images/icons/trackingicon.png" alt=""></small>
+                                <small>
+                                    <img src="{{ asset('assets/images/icons/trackingicon.png') }}" alt="">
+                                </small>
                                 New Tracking Request
                             </a>
                         </li>
@@ -37,7 +41,8 @@
             </li>
             <li>
                 <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/depositico.png" alt=""></small> Deposit Funds
+                    <small><img src="{{ asset('assets/images/icons/depositico.png') }}" alt=""></small> Deposit
+                    Funds
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                         75
                     </span>
@@ -45,20 +50,19 @@
             </li>
             <li>
                 <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/invoiceico.png" alt=""></small>
-                    Transfer Funds
-
-                </a>
-
+                    <small><img src="{{ asset('assets/images/icons/invoiceico.png') }}" alt=""></small>
+                    Transfer Funds 
+                </a> 
             </li>
+            {{-- <li>
+                <a href="javascript:;" title="">
+                    <small><img src="{{ asset('assets/images/icons/ordercertificate.png') }}" alt=""></small>
+                    Order Certificates
+                </a>
+            </li> --}}
             <li>
                 <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/ordercertificate.png" alt=""></small> Order Certificates
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/chatico.png" alt=""></small> Messages
+                    <small><img src="{{ asset('assets/images/icons/chatico.png') }}" alt=""></small> Messages
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         New!
                     </span>
@@ -68,7 +72,7 @@
         <ul class="mt-5">
             <li>
                 <a href="javascript:;" title="">
-                    <small><img src="assets/images/icons/setting.png" alt=""></small> Settings
+                    <small><img src="{{ asset('assets/images/icons/setting.png') }}" alt=""></small> Settings
                 </a>
             </li>
         </ul>

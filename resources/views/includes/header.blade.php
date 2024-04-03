@@ -43,11 +43,11 @@
             </div>
             <div class="profile-nav">
                 <div class="media profile-media">
-                    <img class="b-r-10" src="{{ asset('assets/images/profile.webp') }}" alt="">
+                    <img class="b-r-10" src="{{ asset(auth()->user()->profile_avatar) }}" alt=""style="width: 60px;">
                     <div class="media-body d-xl-block d-none box-col-none">
-                        <div class="d-flex align-items-center gap-2"> <span>Moshe </span><i
+                        <div class="d-flex align-items-center gap-2"> <span>{{ auth()->user()->f_name }} </span><i
                                 class="middle fa fa-angle-down"> </i></div>
-                        <p class="mb-0 font-roboto">Donor</p>
+                        <p class="mb-0 font-roboto">{{ auth()->user()->l_name }} </p>
                     </div>
                     <ul class="profile-dropdown onhover-show-div active">
                         <li>

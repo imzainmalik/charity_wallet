@@ -60,16 +60,15 @@
                                                 </td>
                                                 <td>
                                                     @if ($all_campaign->status != 0)
-                                                        @if ($all_campaign->status == 3)
+                                                        @if($all_campaign->status == 3)
                                                             <button type="button"
                                                                 onclick="changeCampaignStatus({{ $all_campaign->id }}, 1)"
-                                                                class="btn btn-success">Publish
-                                                                again</button>
+                                                                class="btn btn-success">Publish again</button>
                                                         @else
                                                             <button type="button"
                                                                 onclick="changeCampaignStatus({{ $all_campaign->id }}, 3)"
                                                                 class="btn btn-warning">Unpublish</button>
-                                                        @endif 
+                                                        @endif
                                                     @endif
                                                     <a href="{{ route('collector.view_campaign', $all_campaign->id) }}" class="btn btn-primary">View</a>
                                                 </td>

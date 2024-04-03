@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Collector;
 
 use App\Http\Controllers\Controller;
 use App\Models\BankDetail;
+use App\Models\Campaign;
+use App\Models\DonorWalletTransaction;
 use Illuminate\Http\Request;
 
 class CollectorBankDetailsController extends Controller
@@ -47,6 +49,8 @@ class CollectorBankDetailsController extends Controller
     }
 
     public function transaction_history(){
-        // return view('')
+        $collector_campaigns = Campaign::where('collector_id', auth()->user()->id)->pluck('id')->toArray();
+        $transactions = DonorWalletTransaction::whereIn('campaign_id', $collector_campaigns)->orderBy('id','DESC')->paginate(10);
+        return view('collector.bank.transaction_history',compact('transactions'));
     }
 }
