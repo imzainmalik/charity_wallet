@@ -25,8 +25,7 @@
         });
     }
 
-    function changeBankStatus(id, status) {
-
+    function changeBankStatus(id, status) { 
         Swal.fire({
             title: "Are you sure do you really want to perform this action?",
             icon: "warning",
@@ -45,9 +44,7 @@
                 window.location.reload();
             }
         });
-    }
-
-
+    } 
     function changeCampaignStatus(id, status){
         Swal.fire({
             title: "Are you sure do you really want to perform this action?",
