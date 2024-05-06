@@ -18,12 +18,13 @@
                 <a href="javascript:;" title="">
                     <small><img src="{{ asset('assets/images/icons/walletico.png') }}" alt=""></small> Activity
                     <i class="fal fa-chevron-down chev"></i>
-                </a>
+                </a>               
                 <div class="dropdown">
                     <ul>
                         <li>
                             <a href="javascript:;" title="">
-                                <small><img src="{{ asset('assets/images/icons/shipmenticon.png') }}"
+                                <small>
+                                    <img src="{{ asset('assets/images/icons/shipmenticon.png') }}"
                                         alt=""></small>
                                 Post a Shipment
                             </a>
@@ -40,19 +41,19 @@
                 </div>
             </li>
             <li>
-                <a href="javascript:;" title="">
+                <a href="{{ route('donor.transfer_funds') }}" title="">
                     <small><img src="{{ asset('assets/images/icons/depositico.png') }}" alt=""></small> Deposit
                     Funds
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                    {{-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                         75
-                    </span>
+                    </span> --}}
                 </a>
             </li>
             <li>
-                <a href="javascript:;" title="">
+                <a href="{{ route('donor.transaction') }}" title="">
                     <small><img src="{{ asset('assets/images/icons/invoiceico.png') }}" alt=""></small>
-                    Transfer Funds 
-                </a> 
+                    Transfer Funds
+                </a>
             </li>
             {{-- <li>
                 <a href="javascript:;" title="">
@@ -60,8 +61,8 @@
                     Order Certificates
                 </a>
             </li> --}}
-            <li>
-                <a href="javascript:;" title="">
+            <li>    
+                <a href="{{ route('chat.home') }}" title="">
                     <small><img src="{{ asset('assets/images/icons/chatico.png') }}" alt=""></small> Messages
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         New!

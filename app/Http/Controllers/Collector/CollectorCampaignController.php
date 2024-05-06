@@ -31,8 +31,7 @@ class CollectorCampaignController extends Controller
             $attechment = $request->file('logo');
             $campaign_logo = time() . $attechment->getClientOriginalName();
             $attechment->move(public_path('assets/images/campaign_logo'), $campaign_logo);
-        }
-
+        } 
         $campaign = new Campaign();
         $campaign->collector_id = auth()->user()->id;
         $campaign->description = $request->description;

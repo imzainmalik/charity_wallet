@@ -5,7 +5,7 @@
             <span></span>
             <span></span>
         </div>
-        <h2>Dashboard</h2>
+        <h2 id="pageName">Dashboard</h2>
     </div>
     <div class="rightside">
         <div class="searchBoxMM">
@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="letter-box.html">
+                            <a href="{{ route('chat.home') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-mail">
