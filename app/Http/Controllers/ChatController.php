@@ -33,14 +33,14 @@ class ChatController extends Controller
             ->orderBy('id', 'DESC')->get();
 
         $get_user_details = User::findorfail($id);
-        
+
         return view('chat.conversation', get_defined_vars());
-    } 
+    }
     public function send_message(Request $request, $id)
     {
         // dd($request->all());
         $user_details = User::findorfail($id);
-        $chat_details = Chat::orwhere('sender_id',auth()->user()->id)->orwhere('reciver_id',auth()->user()->id)->get();
+        $chat_details = Chat::orwhere('sender_id', auth()->user()->id)->orwhere('reciver_id', auth()->user()->id)->get();
         // dd($chat_details);
         if ($request->hasFile('files')) {
             $attechment  = $request->file('files');
@@ -66,7 +66,7 @@ class ChatController extends Controller
             $has_file = 0;
         }
 
-        if($chat_details->count() > 0){
+        if ($chat_details->count() > 0) {
             $create_chat = new Chat();
             $create_chat->sender_id = auth()->user()->id;
             $create_chat->reciver_id = $id;
@@ -77,7 +77,7 @@ class ChatController extends Controller
             $create_chat->save();
         }
 
-        
+
         $this->send_message_to_user([
             'id' => $id,
             'file_type' => $type ?? '',
@@ -88,21 +88,23 @@ class ChatController extends Controller
         ]);
     }
 
-    public function updates_online_status(Request $request){
+    public function updates_online_status(Request $request)
+    {
         OnlineStatus::where('id', auth()->user()->id)->update(array(
             'user_id' => auth()->user()->id,
             'status' => $request->status
         ));
     }
 
-    public function getActiveStatus(Request $request){
+    public function getActiveStatus(Request $request)
+    {
         $check_exist = OnlineStatus::where('user_id', $request->contact_id)->first();
 
-        if($check_exist != null){
+        if ($check_exist != null) {
             return response()->json([
                 'status' => $check_exist->status,
             ]);
-        }else{
+        } else {
             return response()->json([
                 'error' => 'user not found'
             ]);

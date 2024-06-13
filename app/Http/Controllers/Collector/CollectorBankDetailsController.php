@@ -48,7 +48,7 @@ class CollectorBankDetailsController extends Controller
         return redirect()->back()->with('success','Bank details has been updated');
     }
 
-    public function transaction_history(){
+    public function transaction_history() {
         $collector_campaigns = Campaign::where('collector_id', auth()->user()->id)->pluck('id')->toArray();
         $transactions = DonorWalletTransaction::whereIn('campaign_id', $collector_campaigns)->orderBy('id','DESC')->paginate(10);
         return view('collector.bank.transaction_history',compact('transactions'));

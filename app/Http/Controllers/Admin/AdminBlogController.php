@@ -14,8 +14,7 @@ class AdminBlogController extends Controller
     {
         $this->middleware('auth');
     }
-
-
+ 
     public function index(){
         $blogs = Blog::all();
         return view('admin.blogs.index',get_defined_vars());
@@ -30,7 +29,7 @@ class AdminBlogController extends Controller
         // dd($request->all());
 
         $attechment  = $request->file('thumbnail');
-        $img_2 =  time() . $attechment->getClientOriginalName();
+        $img_2 = time() . $attechment->getClientOriginalName();
         $attechment->move(public_path('assets/images/blog'), $img_2); 
 
         $blog = new Blog();
@@ -58,7 +57,6 @@ class AdminBlogController extends Controller
             $blog_details = Blog::findorfail($id);
             $img_2 = $blog_details->thumbnail;
         }
-
         Blog::where('id',$id)->update(array(
             'title' => $request->title,
             'category' => $request->category,
