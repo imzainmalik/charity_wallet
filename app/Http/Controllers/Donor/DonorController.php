@@ -51,7 +51,7 @@ class DonorController extends Controller
             $in_minus = 'yes';
         } else {
             $in_minus = 'no';
-        }
+        } 
         $startDate = Carbon::now()->subDays(7)->startOfDay();
         $endDate = Carbon::now()->endOfDay();
 

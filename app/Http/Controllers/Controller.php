@@ -48,9 +48,6 @@ class Controller extends BaseController
             // dd($res);
             curl_close($ch);
         }
-
-        //dd($res);
-
         return $res;
     }
 
@@ -98,6 +95,7 @@ class Controller extends BaseController
             'message' => Auth::user()->name . " Send You a message",
             'url' => '/Conversation/' . $user_sec->id . '/' . $user_sec->name
         ]);
+        // echo $res;
         return $res;
     }
 }

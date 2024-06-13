@@ -64,7 +64,7 @@
                                     <th>Date</th>
                                     <th>Recipient</th>
                                     <th>From</th>
-                                    <th>Email</th>
+                                    {{-- <th>Email</th> --}}
                                     <th>Service Type</th>
                                     <th>Status</th>
                                     {{-- <th>&nbsp;</th> --}}

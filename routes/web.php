@@ -66,7 +66,7 @@ Route::group(['prefix' => 'donor'], function () {
 });     
 // Route::middleware(['auth', 'donor'])->prefix('donor')->group(function () {
 //     Route::get('dashboard', [DonorController::class, 'dashboard'])->name('dashboard');
-// });  
+// });  2
 Route::group(['prefix' => 'collector'], function () {
     Route::get('dashboard', [CollectorController::class, 'index'])->name('collector.dashboard');
     Route::get('create_campaign', [CollectorCampaignController::class, 'create_campaign'])->name('collector.create_campaign');

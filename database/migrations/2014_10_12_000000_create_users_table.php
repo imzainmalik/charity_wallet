@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('dob')->nullable();
             $table->string('signup_reason')->nullable(); 
             $table->string('profile_avatar')->nullable(); 
-            
             $table->integer('account_type')->default(0)->comment('0=donor, 1=collector, 2=admin');
+            $table->integer('parent_id')->nullable();
             $table->integer('acc_status')->default(0)->comment('0=pending, 1=active, 2=suspend');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

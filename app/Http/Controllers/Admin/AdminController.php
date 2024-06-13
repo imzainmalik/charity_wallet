@@ -21,7 +21,7 @@ class AdminController extends Controller
         $all_donation = DonorWalletTransaction::orderBy('id', 'DESC');
 
         $donations_sum = $all_donation->sum('amount');
-        
+
         $weekly_donation = DonorWalletTransaction::select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
             ->groupBy(DB::raw('DATE(created_at)'))->get();
 
@@ -29,7 +29,8 @@ class AdminController extends Controller
             ->groupBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'))
             ->get();
 
-            // $this->fun_name($arra);
+        
         return view('admin.index', get_defined_vars());
     }
+
 }
